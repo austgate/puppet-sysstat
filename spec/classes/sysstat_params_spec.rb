@@ -11,11 +11,31 @@ describe 'sysstat::params', :type => :class do
     it { should include_class('sysstat::params') }
   end
 
+  describe 'for osfamily Debian' do
+    let :facts do
+      {
+        :osfamily => 'Debian',
+      }
+    end
+
+    it { should include_class('sysstat::params') }
+  end
+  
+  describe 'for osfamily Ubuntu' do
+    let :facts do
+      {
+        :osfamily => 'Ubuntu',
+      }
+    end
+
+    it { should include_class('sysstat::params') }
+  end
+  
   describe 'unsupported osfamily' do
     let :facts do 
       {
-        :osfamily        => 'Debian',
-        :operatingsystem => 'Debian',
+        :osfamily        => 'Fedora',
+        :operatingsystem => 'Fedora',
       }
     end
   
